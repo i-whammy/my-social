@@ -1,5 +1,7 @@
 <template>
-    <header class="global-header">My social</header>
+    <header class="global-header">
+        <a href="#" class="top-link">my social</a>
+    </header>
 </template>
 
 <script lang="ts">
@@ -13,5 +15,9 @@ export default Vue.extend({
 .global-header {
     height: 40px;
     padding: 8px 0;
+    text-align: left;
+}
+.top-link {
+    padding-left: 4%;
 }
 </style>
