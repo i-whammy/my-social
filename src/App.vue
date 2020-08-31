@@ -1,8 +1,13 @@
 <template>
   <div id="app">
     <header class="global-header">
+      <div class='top-block'>
         <router-link to='/' class='top-link'>my social</router-link>
+      </div>
+      <div class='submenu-block'>
         <router-link to='/signin' class='signin-link'>Sign In</router-link>
+        <router-link to='/signup' class='signup-link'>Sign Up</router-link>
+      </div>
     </header>
     <div class="banner">
         <div class="banner-title">my social</div>
@@ -35,11 +40,23 @@ export default Vue.extend({
   display: flex;
   justify-content: space-between;
 }
-.top-link {
-  padding-left: 4%;
+
+.top-block {
+  width: 120px;
 }
-.signin-link {
-  padding-right: 4%
+
+.submenu-block {
+  display: flex;
+  justify-content: space-between;
+  width: 160px;
+
+  .signin-link {
+    padding-left: 16px;
+  }
+
+  .signup-link {
+    padding-right: 16px;
+  }
 }
 
 .banner {
