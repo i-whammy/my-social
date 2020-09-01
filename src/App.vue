@@ -11,6 +11,7 @@
     </header>
     <div class="banner">
         <div class="banner-title">my social</div>
+        <div>Let's make what you know what we know</div>
     </div>
     <router-view></router-view>
   </div>
@@ -65,7 +66,7 @@ export default Vue.extend({
     background-color: #6aff6a;
 }
 .banner-title {
-    padding-top: 50px;
+    padding: 40px 0;
     font-size: 32pt;
 }
 </style>
