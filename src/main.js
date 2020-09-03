@@ -1,12 +1,12 @@
 import Vue from 'vue'
-import Articles from './components/Articles.vue'
+import MainPage from './components/MainPage.vue'
 import SignInPage from './components/SignInPage.vue'
 import SignUpPage from './components/SignUpPage.vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 
 const routes = [
-  { path: '/', component: Articles },
+  { path: '/', component: MainPage },
   { path: '/signin', component: SignInPage },
   { path: '/signup', component: SignUpPage }
 ]
