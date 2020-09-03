@@ -2,8 +2,7 @@
     <div class='articles'>
         <div v-for='article in articles' v-bind:key='article.id'>
             <div class='article'>
-                <div class='article-user'>{{article.userId}}</div>
-                <div class='article-published'>{{article.published}}</div>
+                <article-meta-info :userId=article.userId :published=article.published :favoritesCount=article.favoritesCount />
                 <div class='article-title'>{{article.title}}</div>
             </div>
         </div>
@@ -12,14 +11,20 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import Article from '../domains/Article'
+import ArticleMetaInfo from './ArticleMetaInfo.vue'
+
 export default Vue.extend({
     name: 'Articles',
     data: function() {
         return { articles: [
-            { title: 'Hello world!', id: 1, userId: 'aaaa', published: 'Jan 1st, 2020' },
-            { title: 'Hello world 2nd!', id: 2, userId: 'eeee', published: 'Dec 1st, 2019' },
-            { title: 'Hello world 3rd!', id: 3, userId: 'ccccc', published: 'Nov 15th, 2019' },
+            new Article(1, 'Hello world!', 'user1', 'Jan 1st, 2021', 3),
+            new Article(2, 'Hello world from 2nd user!', 'user2', 'Mar 1st, 2020', 2),
+            new Article(3, 'Hello world from 3rd user!', 'user3', 'Dec 1st, 2019', 5),
         ]}
+    },
+    components: {
+        ArticleMetaInfo,
     }
 })
 </script>
@@ -34,13 +39,5 @@ export default Vue.extend({
 .article-title {
     font-size: 24px;
     margin: 16px 0;
-}
-
-.article-user {
-    font-size: 20px;
-}
-
-.article-published {
-    font-size: 12px;
 }
 </style>
