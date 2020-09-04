@@ -4,6 +4,7 @@
             <div class='article'>
                 <article-meta-info :userId=article.userId :published=article.published :favoritesCount=article.favoritesCount />
                 <div class='article-title'>{{article.title}}</div>
+                <div class='read-more-link'>Read more...</div>
                 <div class='tag-area'>
                     <div class='tag' v-for='tag in article.tags' v-bind:key='tag.value'>{{tag.value}}</div>
                 </div>
@@ -45,6 +46,11 @@ export default Vue.extend({
     margin: 16px 0;
 }
 
+.read-more-link {
+    font-size: 12px;
+    margin: 8px 0;
+}
+
 .tag-area {
     display: flex;
 }
@@ -55,6 +61,6 @@ export default Vue.extend({
     color: #888aaa;
     font-size: 14px;
     padding: 2px 4px;
-    margin: 0 4px;
+    margin-right: 8px;
 }
 </style>
