@@ -1,15 +1,18 @@
 <template>
     <div class='articles'>
-        <div v-for='article in articles' v-bind:key='article.id'>
-            <div class='article'>
-                <article-meta-info :userId=article.userId :published=article.published :favoritesCount=article.favoritesCount />
-                <div class='article-title'>{{article.title}}</div>
-                <div class='read-more-link'>Read more...</div>
-                <div class='tag-area'>
-                    <div class='tag' v-for='tag in article.tags' v-bind:key='tag.value'>{{tag.value}}</div>
+        <paginate name='articlesList' :list='articles' :per=5>
+            <div v-for="article in paginated('articlesList')" v-bind:key='article.id'>
+                <div class='article'>
+                    <article-meta-info :userId=article.userId :published=article.published :favoritesCount=article.favoritesCount />
+                    <div class='article-title'>{{article.title}}</div>
+                    <div class='read-more-link'>Read more...</div>
+                    <div class='tag-area'>
+                        <div class='tag' v-for='tag in article.tags' v-bind:key='tag.value'>{{tag.value}}</div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </paginate>
+        <paginate-links for="articlesList" :show-step-links="true"></paginate-links>
     </div>
 </template>
 
@@ -20,7 +23,10 @@ import ArticleMetaInfo from './ArticleMetaInfo.vue'
 export default Vue.extend({
     name: 'Articles',
     data: function() {
-        return { articles: this.$store.state.articles }
+        return { 
+            articles: this.$store.state.articles,
+            paginate: ['articlesList']
+        }
     },
     components: {
         ArticleMetaInfo,
@@ -56,5 +62,10 @@ export default Vue.extend({
     font-size: 14px;
     padding: 2px 4px;
     margin-right: 8px;
+}
+
+ul.paginate-links {
+    display: flex;
+    list-style: none;
 }
 </style>

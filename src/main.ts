@@ -5,6 +5,9 @@ import { store } from './store'
 
 Vue.config.productionTip = false
 
+var VuePaginate = require('vue-paginate')
+Vue.use(VuePaginate)
+
 new Vue({
   render: h => h(App),
   router,
