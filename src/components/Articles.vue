@@ -15,18 +15,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import Article from '../domains/Article'
 import ArticleMetaInfo from './ArticleMetaInfo.vue'
-import Tag from '../domains/Tag'
 
 export default Vue.extend({
     name: 'Articles',
     data: function() {
-        return { articles: [
-            new Article(1, 'Hello world!', 'user1', 'Jan 1st, 2021', 3, []),
-            new Article(2, 'Hello world from 2nd user!', 'user2', 'Mar 1st, 2020', 2, [new Tag('Java')]),
-            new Article(3, 'Hello world from 3rd user!', 'user3', 'Dec 1st, 2019', 5, [new Tag('Kotlin'), new Tag('TypeScript')]),
-        ]}
+        return { articles: this.$store.state.articles }
     },
     components: {
         ArticleMetaInfo,
